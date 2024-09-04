@@ -2,9 +2,9 @@ import streamlit as st
 import time
 import numpy as np
 
-st.set_page_config(page_title="Plotting Demo", page_icon="📈")
+st.set_page_config(page_title="Site Overview 2", page_icon="📊")
 
-st.markdown("# Plotting Demo")
+st.markdown("# 📊 Site Overview 2")
 st.sidebar.header("Plotting Demo")
 st.write(
     """This demo illustrates a combination of plotting and animation with

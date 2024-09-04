@@ -3,9 +3,9 @@ import pandas as pd
 import pydeck as pdk
 from urllib.error import URLError
 
-st.set_page_config(page_title="Mapping Demo", page_icon="🌍")
+st.set_page_config(page_title="Mapping Demo", page_icon="🦘")
 
-st.markdown("# Mapping Demo")
+st.markdown("# Site 1 - 🦘 Kangaroo Creek")
 st.sidebar.header("Mapping Demo")
 st.write(
     """This demo shows how to use

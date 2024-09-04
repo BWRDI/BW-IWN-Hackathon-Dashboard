@@ -3,9 +3,9 @@ import pandas as pd
 import altair as alt
 from urllib.error import URLError
 
-st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
+st.set_page_config(page_title="Little Coliban River", page_icon="🌊")
 
-st.markdown("# DataFrame Demo")
+st.markdown("# Site 2 - 🌊 Little Coliban River")
 st.sidebar.header("DataFrame Demo")
 st.write(
     """This demo shows how to use `st.write` to visualize Pandas DataFrames.
