@@ -2,6 +2,20 @@ import streamlit as st
 import time
 import numpy as np
 
+
+
+
+
+
+def main():
+    # builds the sidebar menu
+    with st.sidebar:
+        st.page_link('streamlit_app.py', label='Dashboard Introduction', icon='👋')
+        st.page_link('pages/competition.py', label='Competition Checker', icon='🛡️')
+
+    st.title(f'🛡️ Competition Checker')
+
+    # your content
 st.set_page_config(page_title="Site Overview", page_icon="📈")
 
 st.markdown("# 📈 Site Overview")
@@ -31,3 +45,6 @@ progress_bar.empty()
 # this button is not connected to any other logic, it just causes a plain
 # rerun.
 st.button("Re-run")
+
+if __name__ == '__main__':
+    main()
