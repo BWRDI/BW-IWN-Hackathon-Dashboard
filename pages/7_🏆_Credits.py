@@ -8,12 +8,12 @@ st.markdown("# Team Barwon")
 st.sidebar.header("Team Barwon Members")
 st.sidebar.write(
 """
-    - [📧](brigid@barwonwater.vic.gov.au) Brigid Creasey
-    - [📧](brigid@barwonwater.vic.gov.au) James Fenton
-    - [📧](brigid@barwonwater.vic.gov.au) Jenny Perks
-    - [📧](brigid@barwonwater.vic.gov.au) Loch Sharkey
-    - [📧](brigid@barwonwater.vic.gov.au) Murray Davidson
-    - [📧](brigid@barwonwater.vic.gov.au) Tom Murphy  
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) Brigid Creasey
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) James Fenton
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) Jenny Perks
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) Loch Sharkey
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) Murray Davidson
+    - [📧](mailto:brigid@barwonwater.vic.gov.au) Tom Murphy  
 """
 )
 
