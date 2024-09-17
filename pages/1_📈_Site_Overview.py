@@ -1,33 +1,88 @@
 import streamlit as st
-import time
-import numpy as np
+import pandas as pd
+import plotly.express as px
 
+# Set page title and icon
 st.set_page_config(page_title="Site Overview", page_icon="📈")
 
-st.markdown("# 📈 Site Overview")
-st.sidebar.header("Plotting Demo")
-st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+# Page title
+st.title("📈 Site Overview")
+
+# Sidebar header for selecting a site
+st.sidebar.header("Site Selection")
+
+# Updated monitoring site options
+site_options = [
+    "Kangaroo Creek", 
+    "Little Coliban River", 
+    "Five Mile Creek - Woodend RWP Site 1", 
+    "Five Mile Creek - Woodend RWP Site 2"
+]
+selected_site = st.sidebar.selectbox("Choose a site to view data", site_options)
+
+st.sidebar.success(f"Viewing data for: {selected_site}")
+
+# Introduction text for the selected site
+st.markdown(
+    f"""
+    You are currently viewing the data overview for **{selected_site}**.
+    
+    This section provides key insights and visualizations for the selected monitoring site, 
+    including water quality comparisons.
+    
+    **Select different sites from the sidebar** to compare data from various locations.
+    """
 )
 
-progress_bar = st.sidebar.progress(0)
-status_text = st.sidebar.empty()
-last_rows = np.random.randn(1, 1)
-chart = st.line_chart(last_rows)
+# Load EcoDetection data using st.cache_data
+@st.cache_data
+def load_ecodetection_data():
+    # Load the EcoDetection data from the correct CSV path
+    return pd.read_csv("/workspaces/gdp-dashboard/data/ecodetection_clean_data.csv")
 
-for i in range(1, 101):
-    new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
-    status_text.text("%i%% Complete" % i)
-    chart.add_rows(new_rows)
-    progress_bar.progress(i)
-    last_rows = new_rows
-    time.sleep(0.05)
+# Load the data
+ecodetection_data = load_ecodetection_data()
 
-progress_bar.empty()
+# Filter the data based on the selected site
+site_data_eco = ecodetection_data[ecodetection_data["location"] == selected_site]
 
-# Streamlit widgets automatically run the script from top to bottom. Since
-# this button is not connected to any other logic, it just causes a plain
-# rerun.
-st.button("Re-run")
+# Convert units (e.g., ppb to mg/L if necessary) and process data as needed
+site_data_eco["result_mg_L"] = site_data_eco.apply(
+    lambda row: row["result"] * 0.001 if row["unit"] == "ppb" else row["result"], axis=1
+)
+
+# Group 1: Inorganic Chemicals
+inorganic_chemicals = ["Chloride Concentration", "Fluoride Concentration", "Sulphate Concentration"]
+inorganic_data = site_data_eco[site_data_eco["measurement"].isin(inorganic_chemicals)]
+st.subheader("Inorganic Chemicals")
+fig_inorganic = px.line(inorganic_data, x="timestamp", y="result_mg_L", color="measurement", 
+                        title="Inorganic Chemicals Concentration", labels={"result_mg_L": "Concentration (mg/L)"})
+st.plotly_chart(fig_inorganic)
+
+# Group 2: Nutrients
+nutrients = ["Nitrate Concentration", "Nitrite Concentration", "Phosphate Concentration"]
+nutrient_data = site_data_eco[site_data_eco["measurement"].isin(nutrients)]
+st.subheader("Nutrients")
+fig_nutrients = px.line(nutrient_data, x="timestamp", y="result_mg_L", color="measurement", 
+                        title="Nutrient Concentrations", labels={"result_mg_L": "Concentration (mg/L)"})
+st.plotly_chart(fig_nutrients)
+
+# Group 3: Physical Properties
+physical_properties = ["Conductivity", "Nephelo Turbidity", "Oxygen", "pH"]
+physical_data = site_data_eco[site_data_eco["measurement"].isin(physical_properties)]
+st.subheader("Physical Properties")
+fig_physical = px.line(physical_data, x="timestamp", y="result_mg_L", color="measurement", 
+                       title="Physical Properties", labels={"result_mg_L": "Value"})
+st.plotly_chart(fig_physical)
+
+# Group 4: Environmental Data
+environmental_data = ["Enclosure Temperature", "Temperature"]
+env_data = site_data_eco[site_data_eco["measurement"].isin(environmental_data)]
+st.subheader("Environmental Data")
+fig_environmental = px.line(env_data, x="timestamp", y="result_mg_L", color="measurement", 
+                            title="Environmental Data", labels={"result_mg_L": "Temperature (°C)"})
+st.plotly_chart(fig_environmental)
+
+# Option to refresh or rerun
+if st.button("Refresh Data"):
+    st.experimental_rerun()
