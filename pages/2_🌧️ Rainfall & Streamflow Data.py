@@ -86,4 +86,4 @@ st.plotly_chart(fig_streamflow)
 
 # Option to refresh or rerun
 if st.button("Refresh Data"):
-    st.experimental_rerun()
+    st.experimental_set_query_params()
