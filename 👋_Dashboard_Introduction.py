@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.title("Catchment Health Dashboard for Coliban Water")
 
@@ -27,3 +28,27 @@ st.markdown(
     - Explore the interactive data visualizations and insights on each site-specific page.
     """
 )
+
+# Add a file upload section
+st.markdown("### 📁 Upload and Update Data")
+st.markdown("Upload new data files to update the dashboard. You can upload **CSV** or **Excel** files containing EcoDetection, Rainfall, Streamflow, or Lab data.")
+
+# Allow multiple file uploads
+uploaded_files = st.file_uploader("Choose CSV or Excel files", type=["csv", "xlsx"], accept_multiple_files=True)
+
+if uploaded_files:
+    for uploaded_file in uploaded_files:
+        # Check file extension and load data accordingly
+        if uploaded_file.name.endswith(".csv"):
+            data = pd.read_csv(uploaded_file)
+            st.success(f"Uploaded CSV file: {uploaded_file.name}")
+        elif uploaded_file.name.endswith(".xlsx"):
+            data = pd.read_excel(uploaded_file, sheet_name=None)  # Load all sheets if it's Excel
+            st.success(f"Uploaded Excel file: {uploaded_file.name}")
+        
+        # Display the uploaded data
+        st.write(f"**Data preview from {uploaded_file.name}:**")
+        st.write(data)
+        
+        # Here, you could add functionality to process, save, or update the dashboard with the new data
+        # For now, we're just showing the data as a preview
