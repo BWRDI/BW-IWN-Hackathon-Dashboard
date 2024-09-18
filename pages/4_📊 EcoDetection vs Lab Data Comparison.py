@@ -27,18 +27,18 @@ def load_all_data():
     lab_data = pd.read_excel(Path(__file__).parent.parent / 'data' / 'cw_catchment_sampling_filtered.xlsx')
     return water_quality_data, lab_data
 
-# Convert Excel serial date to datetime
+# Convert Excel serial date to datetime for EcoDetection data
 def excel_serial_date_to_datetime(excel_date):
-    return (datetime(1899, 12, 30) + timedelta(days=excel_date)).date()
+    return (datetime(1899, 12, 30) + timedelta(days=excel_date))
 
 # Load data
 water_quality_data, lab_data = load_all_data()
 
-# Convert timestamps to proper date format for EcoDetection data
-water_quality_data['Date'] = water_quality_data['timestamp'].apply(excel_serial_date_to_datetime)
+# Convert timestamps to proper datetime format for EcoDetection data
+water_quality_data['Date'] = pd.to_datetime(water_quality_data['timestamp'].apply(excel_serial_date_to_datetime), errors='coerce')
 
-# Convert Lab data date format
-lab_data['Date'] = pd.to_datetime(lab_data['date_sampled'], errors='coerce').dt.date
+# Convert Lab data date format to datetime
+lab_data['Date'] = pd.to_datetime(lab_data['date_sampled'], errors='coerce')
 
 # Filter Lab Data by Site and rename sites
 lab_data['Subsite_Code'] = lab_data['Subsite_Code'].replace({
@@ -70,6 +70,54 @@ def detect_outliers(df, column):
 if selected_site in ["Five Mile Creek - Site 1", "Five Mile Creek - Site 2"]:
     st.warning(f"Lab data for {selected_site} is missing. Please upload the lab data on the uploads page.")
 else:
+    # Filter data for the selected site
+    eco_detection_data = water_quality_data[water_quality_data['location'] == selected_site]
+    lab_data_filtered = lab_data[lab_data['Subsite_Code'] == selected_site]
+
+    # Ensure datetime conversion
+    eco_detection_data['Date'] = pd.to_datetime(eco_detection_data['Date'])
+    lab_data_filtered['Date'] = pd.to_datetime(lab_data_filtered['Date'])
+
+    # Determine the minimum and maximum dates for both datasets
+    min_date_eco = eco_detection_data['Date'].min()
+    max_date_eco = eco_detection_data['Date'].max()
+    
+    min_date_lab = lab_data_filtered['Date'].min()
+    max_date_lab = lab_data_filtered['Date'].max()
+
+    # Determine the overall min and max dates for the slider
+    min_date = min(min_date_eco, min_date_lab).to_pydatetime()
+    max_date = max(max_date_eco, max_date_lab).to_pydatetime()
+
+    # Set default value for the last year
+    default_start_date = max_date - timedelta(days=365)
+
+    # Use session state to persist the date range across site selections
+    if 'date_range' not in st.session_state:
+        st.session_state.date_range = (default_start_date, max_date)
+
+    # Add a date range slider for selecting the date range in the sidebar
+    st.sidebar.markdown("### Select Date Range to Zoom In")
+    selected_dates = st.sidebar.slider(
+        "Date Range", 
+        min_value=min_date, 
+        max_value=max_date, 
+        value=st.session_state.date_range,  # Use session state for persistence
+        format="YYYY-MM-DD"
+    )
+
+    # Update session state when the slider changes
+    st.session_state.date_range = selected_dates
+
+    # Filter both datasets based on the selected date range
+    eco_detection_data = eco_detection_data[
+        (eco_detection_data['Date'] >= selected_dates[0]) & (eco_detection_data['Date'] <= selected_dates[1])
+    ]
+
+    lab_data_filtered = lab_data_filtered[
+        (lab_data_filtered['Date'] >= selected_dates[0]) & (lab_data_filtered['Date'] <= selected_dates[1])
+    ]
+
     # Define matching parameters
     matching_parameters = {
         "Turbidity": ["Nephelo Turbidity", "Turbidity"],
@@ -89,31 +137,31 @@ else:
         st.subheader(f"{param} Comparison (EcoDetection vs Lab Data)")
         
         # Filter EcoDetection data for the selected site and parameter
-        eco_detection_data = water_quality_data[(water_quality_data['measurement'] == ecodev_param) &
-                                                (water_quality_data['location'] == selected_site)]
+        eco_detection_param_data = eco_detection_data[
+            (eco_detection_data['measurement'] == ecodev_param)
+        ]
+
         if ecodev_param in ["Nitrate Concentration", "Nitrite Concentration", "Phosphate Concentration"]:
-            eco_detection_data['result'] = eco_detection_data['result'].apply(convert_ppb_to_mg_l)
+            eco_detection_param_data['result'] = eco_detection_param_data['result'].apply(convert_ppb_to_mg_l)
         
-        # Filter Lab data for the parameter and the selected site
-        lab_data_param_filtered = lab_data[lab_data['Measure'] == lab_param]
-        lab_data_param_filtered = lab_data_param_filtered[lab_data_param_filtered['Subsite_Code'] == selected_site]
+        # Filter Lab data for the parameter
+        lab_data_param_filtered = lab_data_filtered[(lab_data_filtered['Measure'] == lab_param)]
 
         # Detect outliers in EcoDetection data
-        outliers = detect_outliers(eco_detection_data, 'result')
+        outliers = detect_outliers(eco_detection_param_data, 'result')
 
         if outliers.any():
             st.warning(f"Detected {outliers.sum()} likely sensor failures in EcoDetection data for {param} at {selected_site}.")
         
         # Option to hide outliers
         if hide_outliers:
-            eco_detection_data = eco_detection_data[~outliers]
+            eco_detection_param_data = eco_detection_param_data[~outliers]
 
         # Create a combined dataframe for comparison
         combined_df = pd.DataFrame({
-            'Date': pd.concat([eco_detection_data['Date'], lab_data_param_filtered['Date']]),
-            'Source': ['EcoDetection'] * len(eco_detection_data) + ['Lab'] * len(lab_data_param_filtered),
-            'Value': pd.concat([eco_detection_data['result'], lab_data_param_filtered['Result']]),
-            'Site': pd.concat([eco_detection_data['location'], lab_data_param_filtered['Subsite_Code']])
+            'Date': pd.concat([eco_detection_param_data['Date'], lab_data_param_filtered['Date']]),
+            'Source': ['EcoDetection'] * len(eco_detection_param_data) + ['Lab'] * len(lab_data_param_filtered),
+            'Value': pd.concat([eco_detection_param_data['result'], lab_data_param_filtered['Result']]),
         }).dropna()
 
         # Create a line chart using Plotly with custom colors
@@ -121,7 +169,6 @@ else:
             combined_df, 
             x='Date', y='Value', 
             color='Source', 
-            line_dash='Site',
             color_discrete_map={"EcoDetection": "#1f77b4", "Lab": "#ff7f0e"},  # Set custom colors
             labels={'Value': f'{param} (mg/L)' if param != "Turbidity" else f'{param} (NTU)'},
             title=f'{param} Trend Comparison for {selected_site}'
