@@ -23,64 +23,72 @@ selected_site = st.sidebar.selectbox("Choose a site to view data", site_options)
 
 st.sidebar.success(f"Viewing data for: {selected_site}")
 
-# Introduction text for Rainfall & Streamflow data
-st.markdown(
-    f"""
-    You are currently viewing the rainfall and streamflow data for **{selected_site}**.
-    
-    This section provides a detailed look into the environmental factors affecting water quality, 
-    including rainfall and streamflow data.
-    
-    **Select different sites from the sidebar** to compare data from various locations.
-    """
-)
+# Define file paths for the streamflow data
+streamflow_file_paths = {
+    "Kangaroo Creek": "clean_wims_406281.csv",
+    "Little Coliban River": "clean_wims_406280.csv",
+    "Five Mile Creek - Woodend RWP Site 1": "clean_wims_406266.csv",
+    "Five Mile Creek - Woodend RWP Site 2": "clean_wims_406266.csv"
+}
 
-# Load Rainfall and Streamflow data using st.cache_data
+# Load rainfall data (assuming it's not too large)
 @st.cache_data
-def load_data():
-    # Load rainfall and streamflow data from the correct paths
-    rainfall_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_bom_data.csv")
-    streamflow_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_wims_data.csv")
-    return rainfall_data, streamflow_data
+def load_rainfall_data():
+    rainfall_path = Path(__file__).parent.parent / 'data' / "clean_bom_data.csv"
+    return pd.read_csv(rainfall_path, parse_dates=['date'])
 
-# Load the datasets
-rainfall_data, streamflow_data = load_data()
+# Load streamflow data from the correct CSV file
+@st.cache_data
+def load_streamflow_data(selected_file):
+    streamflow_path = Path(__file__).parent.parent / 'data' / selected_file
+    return pd.read_csv(streamflow_path, parse_dates=['datetime'])
 
 # Mapping site names to station numbers for both rainfall and streamflow
 station_mapping = {
-    "Kangaroo Creek": {"rainfall_station": None, "streamflow_station": 406281},
-    "Little Coliban River": {"rainfall_station": 88037, "streamflow_station": 406280},
-    "Five Mile Creek - Woodend RWP Site 1": {"rainfall_station": 88061, "streamflow_station": 406266},
-    "Five Mile Creek - Woodend RWP Site 2": {"rainfall_station": 88061, "streamflow_station": 406266}
+    "Kangaroo Creek": {"rainfall_station": None, "streamflow_station": "406281"},
+    "Little Coliban River": {"rainfall_station": 88037, "streamflow_station": "406280"},
+    "Five Mile Creek - Woodend RWP Site 1": {"rainfall_station": 88061, "streamflow_station": "406266"},
+    "Five Mile Creek - Woodend RWP Site 2": {"rainfall_station": 88061, "streamflow_station": "406266"}
 }
 
-# Get the station numbers based on the selected site
+# Get the station numbers and corresponding file based on the selected site
 selected_rainfall_station = station_mapping[selected_site]["rainfall_station"]
-selected_streamflow_station = station_mapping[selected_site]["streamflow_station"]
+selected_streamflow_file = streamflow_file_paths[selected_site]
 
-# Filter the rainfall data based on the station number (if available)
+# Load and filter rainfall data if available
 if selected_rainfall_station:
-    site_rainfall = rainfall_data[rainfall_data["station_number"] == selected_rainfall_station]
+    site_rainfall = load_rainfall_data()
+    site_rainfall = site_rainfall[site_rainfall["station_number"] == selected_rainfall_station]
+else:
+    site_rainfall = pd.DataFrame()
+
+# Load streamflow data for the selected site
+site_streamflow = load_streamflow_data(selected_streamflow_file)
+
+# Plot Rainfall Data (if available)
+if not site_rainfall.empty:
     st.subheader(f"Rainfall Data for {selected_site}")
     fig_rainfall = px.line(
-        site_rainfall, 
-        x="date", 
-        y="rainfall", 
-        title=f"Rainfall at {selected_site}", 
+        site_rainfall,
+        x="date",
+        y="rainfall",
+        title=f"Rainfall at {selected_site}",
         labels={"rainfall": "Rainfall (mm)", "date": "Date"}
     )
     st.plotly_chart(fig_rainfall)
 else:
-    st.write(f"No rainfall data available for {selected_site}")
+    st.warning(f"No rainfall data available for {selected_site}. Please upload it to the uploads page.")
 
-# Filter the streamflow data based on the station number
-site_streamflow = streamflow_data[streamflow_data["station_number"] == selected_streamflow_station]
-st.subheader(f"Streamflow Data for {selected_site}")
-fig_streamflow = px.line(
-    site_streamflow, 
-    x="datetime", 
-    y="discharge_ml_day", 
-    title=f"Streamflow at {selected_site}", 
-    labels={"discharge_ml_day": "Streamflow (ML/day)", "datetime": "Date"}
-)
-st.plotly_chart(fig_streamflow)
+# Plot Streamflow Data (if available)
+if not site_streamflow.empty:
+    st.subheader(f"Streamflow Data for {selected_site}")
+    fig_streamflow = px.line(
+        site_streamflow,
+        x="datetime",
+        y="discharge_ml_day",
+        title=f"Streamflow at {selected_site}",
+        labels={"discharge_ml_day": "Streamflow (ML/day)", "datetime": "Date"}
+    )
+    st.plotly_chart(fig_streamflow)
+else:
+    st.warning(f"No streamflow data available for {selected_site}. Please upload it to the uploads page.")
