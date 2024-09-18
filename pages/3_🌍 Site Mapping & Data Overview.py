@@ -17,7 +17,7 @@ def load_station_data(file_path):
     return pd.read_excel(file_path)
 
 # Path to the Excel file on the server
-file_path = "/workspaces/gdp-dashboard/data/monitoring_stations.xlsx"
+file_path = Path(__file__).parent.parent / 'data' / 'monitoring_stations.xlsx'
 
 # Load the data
 stations_df = load_station_data(file_path)

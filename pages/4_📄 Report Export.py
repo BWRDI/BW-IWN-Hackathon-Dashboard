@@ -16,9 +16,9 @@ You can customize the report to include any combination of data types.
 # Load all available data
 @st.cache_data
 def load_all_data():
-    water_quality_data = pd.read_csv("/workspaces/gdp-dashboard/data/ecodetection_clean_data.csv")
-    rainfall_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_bom_data.csv")
-    lab_data = pd.read_csv("/workspaces/gdp-dashboard/data/cw_catchment_sampling.csv")  # Load the lab data
+    water_quality_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "ecodetection_clean_data.csv")
+    rainfall_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_bom_data.csv")
+    lab_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "cw_catchment_sampling.csv")  # Load the lab data
     return water_quality_data, rainfall_data, lab_data
 
 # Convert Excel serial date to datetime

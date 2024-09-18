@@ -38,7 +38,7 @@ st.markdown(
 @st.cache_data
 def load_ecodetection_data():
     # Load the EcoDetection data from the correct CSV path
-    return pd.read_csv("/workspaces/gdp-dashboard/data/ecodetection_clean_data.csv")
+    return pd.read_csv(Path(__file__).parent.parent / 'data' / "ecodetection_clean_data.csv")
 
 # Load the data
 ecodetection_data = load_ecodetection_data()

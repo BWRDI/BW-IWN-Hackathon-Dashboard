@@ -38,8 +38,8 @@ st.markdown(
 @st.cache_data
 def load_data():
     # Load rainfall and streamflow data from the correct paths
-    rainfall_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_bom_data.csv")
-    streamflow_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_wims_data.csv")
+    rainfall_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_bom_data.csv")
+    streamflow_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_wims_data.csv")
     return rainfall_data, streamflow_data
 
 # Load the datasets

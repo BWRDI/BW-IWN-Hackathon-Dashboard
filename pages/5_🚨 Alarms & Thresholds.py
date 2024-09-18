@@ -39,8 +39,8 @@ if st.button("Trigger Example Alarm"):
 # Load water quality and rainfall data
 @st.cache_data
 def load_alarm_data():
-    water_quality_data = pd.read_csv("/workspaces/gdp-dashboard/data/ecodetection_clean_data.csv")
-    rainfall_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_bom_data.csv")
+    water_quality_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "ecodetection_clean_data.csv")
+    rainfall_data = pd.read_csv(Path(__file__).parent.parent / 'data' / "clean_bom_data.csv")
     return water_quality_data, rainfall_data
 
 # Convert Excel serial date to datetime (and only keep the date)

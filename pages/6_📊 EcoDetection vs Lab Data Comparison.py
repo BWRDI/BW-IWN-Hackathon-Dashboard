@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import datetime, timedelta
+from pathlib import Path
 
 # Set page title
 st.set_page_config(page_title="EcoDetection vs Lab Data Comparison", page_icon="📊")
@@ -22,8 +23,8 @@ You can choose to hide these outliers to focus on the core data trends by select
 # Load all available data
 @st.cache_data
 def load_all_data():
-    water_quality_data = pd.read_csv("/workspaces/gdp-dashboard/data/ecodetection_clean_data.csv")
-    lab_data = pd.read_excel("/workspaces/gdp-dashboard/data/cw_catchment_sampling_filtered.xlsx")
+    water_quality_data = pd.read_csv(Path(__file__).parent.parent / 'data' / 'ecodetection_clean_data.csv')
+    lab_data = pd.read_excel(Path(__file__).parent.parent / 'data' / 'cw_catchment_sampling_filtered.xlsx')
     return water_quality_data, lab_data
 
 # Convert Excel serial date to datetime
