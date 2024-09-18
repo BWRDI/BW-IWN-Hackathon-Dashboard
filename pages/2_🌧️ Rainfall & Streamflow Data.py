@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import altair as alt
 
 # Set page title and icon
 st.set_page_config(page_title="Rainfall & Streamflow Data", page_icon="🌧️")
@@ -37,12 +37,17 @@ st.markdown(
 # Load Rainfall and Streamflow data using st.cache_data
 @st.cache_data
 def load_data():
-    # Load rainfall and streamflow data from the correct paths
+    # Load and convert the date columns inside the cached function
     rainfall_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_bom_data.csv")
     streamflow_data = pd.read_csv("/workspaces/gdp-dashboard/data/clean_wims_data.csv")
+    
+    # Convert 'date' and 'datetime' columns to datetime types only once (cached)
+    rainfall_data['date'] = pd.to_datetime(rainfall_data['date'], errors='coerce')
+    streamflow_data['datetime'] = pd.to_datetime(streamflow_data['datetime'], errors='coerce')
+    
     return rainfall_data, streamflow_data
 
-# Load the datasets
+# Load the datasets (cached)
 rainfall_data, streamflow_data = load_data()
 
 # Mapping site names to station numbers for both rainfall and streamflow
@@ -59,31 +64,51 @@ selected_streamflow_station = station_mapping[selected_site]["streamflow_station
 
 # Filter the rainfall data based on the station number (if available)
 if selected_rainfall_station:
-    site_rainfall = rainfall_data[rainfall_data["station_number"] == selected_rainfall_station]
-    st.subheader(f"Rainfall Data for {selected_site}")
-    fig_rainfall = px.line(
-        site_rainfall, 
-        x="date", 
-        y="rainfall", 
-        title=f"Rainfall at {selected_site}", 
-        labels={"rainfall": "Rainfall (mm)", "date": "Date"}
-    )
-    st.plotly_chart(fig_rainfall)
+    site_rainfall = rainfall_data[rainfall_data["station_number"] == selected_rainfall_station].dropna(subset=["rainfall"])
+    
+    # Limit the size of the dataset for display (reduce data for performance)
+    site_rainfall = site_rainfall.tail(500)  # Display the last 500 rows
+    
+    if site_rainfall.empty:
+        st.warning(f"No valid rainfall data available for {selected_site}.")
+    else:
+        st.subheader(f"Rainfall Data for {selected_site}")
+    
+        # Create Altair chart for rainfall data
+        rainfall_chart = alt.Chart(site_rainfall).mark_line().encode(
+            x='date:T',
+            y='rainfall:Q',
+            tooltip=['date:T', 'rainfall:Q']
+        ).properties(
+            title=f"Rainfall at {selected_site}"
+        ).interactive()  # Makes the chart zoomable and panable
+    
+        st.altair_chart(rainfall_chart, use_container_width=True)
 else:
     st.write(f"No rainfall data available for {selected_site}")
 
 # Filter the streamflow data based on the station number
-site_streamflow = streamflow_data[streamflow_data["station_number"] == selected_streamflow_station]
-st.subheader(f"Streamflow Data for {selected_site}")
-fig_streamflow = px.line(
-    site_streamflow, 
-    x="datetime", 
-    y="discharge_ml_day", 
-    title=f"Streamflow at {selected_site}", 
-    labels={"discharge_ml_day": "Streamflow (ML/day)", "datetime": "Date"}
-)
-st.plotly_chart(fig_streamflow)
+site_streamflow = streamflow_data[streamflow_data["station_number"] == selected_streamflow_station].dropna(subset=["discharge_ml_day"])
 
-# Option to refresh or rerun
+# Limit the size of the dataset for display (reduce data for performance)
+# site_streamflow = site_streamflow.tail(500)  # Display the last 500 rows
+
+if site_streamflow.empty:
+    st.warning(f"No valid streamflow data available for {selected_site}.")
+else:
+    st.subheader(f"Streamflow Data for {selected_site}")
+
+    # Create Altair chart for streamflow data
+    streamflow_chart = alt.Chart(site_streamflow).mark_line().encode(
+        x='datetime:T',
+        y='discharge_ml_day:Q',
+        tooltip=['datetime:T', 'discharge_ml_day:Q']
+    ).properties(
+        title=f"Streamflow at {selected_site}"
+    ).interactive()
+
+    st.altair_chart(streamflow_chart, use_container_width=True)
+
+# Option to reload or refresh the page
 if st.button("Refresh Data"):
-    st.experimental_set_query_params()
+    st.experimental_set_query_params()  # This refreshes the app by resetting query parameters

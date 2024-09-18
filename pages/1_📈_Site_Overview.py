@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import altair as alt
 
 # Set page title and icon
 st.set_page_config(page_title="Site Overview", page_icon="📈")
@@ -43,6 +43,9 @@ def load_ecodetection_data():
 # Load the data
 ecodetection_data = load_ecodetection_data()
 
+# Convert the timestamp column from serial format (if it's in Excel serial date format)
+ecodetection_data["timestamp"] = pd.to_datetime(ecodetection_data["timestamp"], origin="1899-12-30", unit="D")
+
 # Filter the data based on the selected site
 site_data_eco = ecodetection_data[ecodetection_data["location"] == selected_site]
 
@@ -54,35 +57,67 @@ site_data_eco["result_mg_L"] = site_data_eco.apply(
 # Group 1: Inorganic Chemicals
 inorganic_chemicals = ["Chloride Concentration", "Fluoride Concentration", "Sulphate Concentration"]
 inorganic_data = site_data_eco[site_data_eco["measurement"].isin(inorganic_chemicals)]
+
+# Plotting Inorganic Chemicals using Altair
 st.subheader("Inorganic Chemicals")
-fig_inorganic = px.line(inorganic_data, x="timestamp", y="result_mg_L", color="measurement", 
-                        title="Inorganic Chemicals Concentration", labels={"result_mg_L": "Concentration (mg/L)"})
-st.plotly_chart(fig_inorganic)
+inorganic_chart = alt.Chart(inorganic_data).mark_line().encode(
+    x='timestamp:T',
+    y='result_mg_L:Q',
+    color='measurement:N',
+    tooltip=['timestamp:T', 'result_mg_L:Q', 'measurement:N']
+).interactive().properties(
+    title='Inorganic Chemicals Concentration'
+)
+st.altair_chart(inorganic_chart, use_container_width=True)
 
 # Group 2: Nutrients
 nutrients = ["Nitrate Concentration", "Nitrite Concentration", "Phosphate Concentration"]
 nutrient_data = site_data_eco[site_data_eco["measurement"].isin(nutrients)]
+
+# Plotting Nutrients using Altair
 st.subheader("Nutrients")
-fig_nutrients = px.line(nutrient_data, x="timestamp", y="result_mg_L", color="measurement", 
-                        title="Nutrient Concentrations", labels={"result_mg_L": "Concentration (mg/L)"})
-st.plotly_chart(fig_nutrients)
+nutrient_chart = alt.Chart(nutrient_data).mark_line().encode(
+    x='timestamp:T',
+    y='result_mg_L:Q',
+    color='measurement:N',
+    tooltip=['timestamp:T', 'result_mg_L:Q', 'measurement:N']
+).interactive().properties(
+    title='Nutrient Concentrations'
+)
+st.altair_chart(nutrient_chart, use_container_width=True)
 
 # Group 3: Physical Properties
 physical_properties = ["Conductivity", "Nephelo Turbidity", "Oxygen", "pH"]
 physical_data = site_data_eco[site_data_eco["measurement"].isin(physical_properties)]
+
+# Plotting Physical Properties using Altair
 st.subheader("Physical Properties")
-fig_physical = px.line(physical_data, x="timestamp", y="result_mg_L", color="measurement", 
-                       title="Physical Properties", labels={"result_mg_L": "Value"})
-st.plotly_chart(fig_physical)
+physical_chart = alt.Chart(physical_data).mark_line().encode(
+    x='timestamp:T',
+    y='result_mg_L:Q',
+    color='measurement:N',
+    tooltip=['timestamp:T', 'result_mg_L:Q', 'measurement:N']
+).interactive().properties(
+    title='Physical Properties'
+)
+st.altair_chart(physical_chart, use_container_width=True)
 
 # Group 4: Environmental Data
 environmental_data = ["Enclosure Temperature", "Temperature"]
 env_data = site_data_eco[site_data_eco["measurement"].isin(environmental_data)]
+
+# Plotting Environmental Data using Altair
 st.subheader("Environmental Data")
-fig_environmental = px.line(env_data, x="timestamp", y="result_mg_L", color="measurement", 
-                            title="Environmental Data", labels={"result_mg_L": "Temperature (°C)"})
-st.plotly_chart(fig_environmental)
+env_chart = alt.Chart(env_data).mark_line().encode(
+    x='timestamp:T',
+    y='result_mg_L:Q',
+    color='measurement:N',
+    tooltip=['timestamp:T', 'result_mg_L:Q', 'measurement:N']
+).interactive().properties(
+    title='Environmental Data'
+)
+st.altair_chart(env_chart, use_container_width=True)
 
 # Option to refresh or rerun
 if st.button("Refresh Data"):
-    st.experimental_set_query_params()
+    st.query_params()
