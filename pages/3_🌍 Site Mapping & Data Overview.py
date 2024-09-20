@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import folium
+from streamlit_folium import folium_static
 from pathlib import Path
 
 # Page title and setup
@@ -10,10 +11,10 @@ st.title("🌍 Site Mapping & Data Overview")
 # Sidebar explanation and filters
 st.sidebar.header("Station Details Overview")
 st.sidebar.write("This page shows the monitoring stations on an interactive map. "
-                 "You can hover over each station to see detailed information about the type of data collected.")
+                 "Click on a station to view more details and set alarm sensitivities.")
 
 # Station type filter in the sidebar
-station_types = ["All"] + ["Water Quality", "Rainfall", "Streamflow"]
+station_types = ["All", "Water Quality", "Rainfall", "Streamflow"]
 selected_type = st.sidebar.selectbox("Filter by Station Type", station_types)
 
 # Load the Excel file directly from the server
@@ -34,70 +35,95 @@ stations_df.rename(columns={'lattitude': 'latitude'}, inplace=True)
 if selected_type != "All":
     stations_df = stations_df[stations_df["type"] == selected_type]
 
-# Blurb about the project and site relationships
-st.subheader("Project Overview")
-st.markdown("""
-The purpose of this project is to visualize key monitoring stations across various sites in the catchment area. 
-These stations collect critical data on water quality, rainfall, streamflow, and other environmental factors. 
-By mapping these stations, we can better understand the relationships between different monitoring sites and 
-how data from these locations interact to provide insights into catchment health and management decisions.
+# Function to display station details and alarms with sensitivity sliders
+def display_station_details(station_name):
+    st.subheader(f"Details for {station_name}")
 
-- **Water Quality Stations**: Monitor critical parameters such as turbidity, pH, and nutrient concentrations.
-- **Rainfall Stations**: Measure precipitation to track storm events and their impact on streamflow and water quality.
-- **Streamflow Stations**: Provide data on the flow of water through rivers and streams, allowing for the analysis of hydrological patterns.
-""")
+    # Alarms and sensitivity sliders for specific stations
+    if station_name == "Kangaroo Creek":
+        st.warning("🚨 Eco Detection vs Lab Based Data Difference Alarm")
+        sensitivity = st.slider("Set Sensitivity for Kangaroo Creek", 0, 100, 50)
+        st.write(f"Sensitivity: {sensitivity}")
 
-# Display summary statistics
-st.subheader("Station Summary")
-st.markdown(f"**Total Stations:** {len(stations_df)}")
-st.markdown(f"**Water Quality Stations:** {len(stations_df[stations_df['type'] == 'Water Quality'])}")
-st.markdown(f"**Rainfall Stations:** {len(stations_df[stations_df['type'] == 'Rainfall'])}")
-st.markdown(f"**Streamflow Stations:** {len(stations_df[stations_df['type'] == 'Streamflow'])}")
+    elif station_name == "Little Coliban River":
+        st.warning("🚨 Eco Detection vs Lab Based Data Difference Alarm")
+        sensitivity = st.slider("Set Sensitivity for Little Coliban River", 0, 100, 50)
+        st.write(f"Sensitivity: {sensitivity}")
 
-# Customize hover data to make it more user-friendly
-hover_data = {
-    'station_name': False,  # Show station name in hover, but don't repeat the column label
-    'type': True,           # Show type of station with label
-    'owner': True,          # Show owner with label
-    'latitude': False,       # Hide latitude from hover data
-    'longitude': False       # Hide longitude from hover data
-}
+    elif station_name == "Five Mile Creek - Woodend RWP Site 1":
+        st.warning("🚨 Pre-Treatment Water Quality Alarm (Upstream)")
+        sensitivity = st.slider("Set Sensitivity for Pre-Treatment at Five Mile Creek 1", 0, 100, 50)
+        st.write(f"Sensitivity: {sensitivity}")
 
-# Create a map using Plotly Express with larger markers and custom hover data
-fig = px.scatter_mapbox(stations_df, 
-                        lat="latitude", 
-                        lon="longitude", 
-                        hover_name="station_name", 
-                        hover_data=hover_data,
-                        color="type", 
-                        size_max=20,  # Maximum marker size
-                        zoom=9, 
-                        height=600)
+    elif station_name == "Five Mile Creek - Woodend RWP Site 2":
+        st.warning("🚨 Post-Treatment Water Quality Alarm (Downstream)")
+        sensitivity = st.slider("Set Sensitivity for Post-Treatment at Five Mile Creek 2", 0, 100, 50)
+        st.write(f"Sensitivity: {sensitivity}")
 
-# Update the layout for Plotly Mapbox to enhance the markers and improve the legend
-fig.update_traces(marker=dict(size=18, opacity=0.9))  # Increase size and opacity for better visibility
-fig.update_layout(mapbox_style="open-street-map", 
-                  title="Monitoring Stations Map", 
-                  margin={"r":0, "t":0, "l":0, "b":0},
-                  legend_title_text="Station Type")  # Improved legend title
+    else:
+        st.success("No alarms for this site.")
 
-# Display the map
-st.plotly_chart(fig)
+# Create a map using Folium with clickable markers
+m = folium.Map(location=[-37.814, 144.96332], zoom_start=9)
 
-# Add a Recent Data Insights section
+# Marker color based on station and alarm status
+def get_marker_color(station_name):
+    if station_name in ["Kangaroo Creek", "Little Coliban River"]:
+        return "orange"  # Eco Detection vs Lab based alarm
+    elif station_name == "Five Mile Creek - Woodend RWP Site 1":
+        return "blue"  # Pre-Treatment alarm
+    elif station_name == "Five Mile Creek - Woodend RWP Site 2":
+        return "green"  # Post-Treatment alarm
+    else:
+        return "gray"
+
+# Use session state to track selected station
+if 'selected_station' not in st.session_state:
+    st.session_state.selected_station = None
+
+# Function to create marker popup with clickable link
+def create_popup_html(station_name):
+    return f'<b>{station_name}</b><br><a href="#" onclick="window.parent.postMessage(\'{station_name}\', \'*\')">View Alarms</a>'
+
+# Add markers to the map with colors based on alarms
+for _, row in stations_df.iterrows():
+    marker_color = get_marker_color(row['station_name'])
+    popup_html = create_popup_html(row['station_name'])
+    folium.Marker([row['latitude'], row['longitude']], popup=popup_html, icon=folium.Icon(color=marker_color)).add_to(m)
+
+# Display the map using Streamlit
+folium_static(m)
+
+# Check if a station was clicked
+if st.session_state.selected_station:
+    display_station_details(st.session_state.selected_station)
+
+# JavaScript to receive messages from the iframe
+st.components.v1.html(
+    """
+    <script>
+    window.addEventListener('message', function(event) {
+        const stationName = event.data;
+        if (stationName) {
+            window.parent.postMessage(stationName, '*');
+            console.log('Station clicked:', stationName);
+        }
+    });
+    </script>
+    """, height=0
+)
+
+# Add Recent Data Insights section for the stations
 st.subheader("Recent Data Insights")
-st.markdown("Get a quick snapshot of the most recent data from each station. This data helps identify trends and abnormalities.")
-
-# Dummy recent data insights (Replace with actual data pulling from sources)
 recent_data = {
-    "Water Quality Station": {"Turbidity": "7 NTU", "pH": "7.2", "Nitrate": "0.05 mg/L"},
-    "Rainfall Station": {"Rainfall": "15 mm", "Last Storm Event": "2 days ago"},
-    "Streamflow Station": {"Streamflow": "12.5 ML/day"}
+    "Kangaroo Creek": {"Turbidity": "7 NTU", "pH": "7.2", "Nitrate": "0.05 mg/L"},
+    "Little Coliban River": {"Turbidity": "4 NTU", "pH": "7.0", "Nitrate": "0.04 mg/L"},
+    "Five Mile Creek - Woodend RWP Site 1": {"Turbidity": "5 NTU", "pH": "6.9", "Nitrate": "0.03 mg/L"},
+    "Five Mile Creek - Woodend RWP Site 2": {"Turbidity": "6 NTU", "pH": "7.1", "Nitrate": "0.06 mg/L"}
 }
 
-for station, data in recent_data.items():
-    st.markdown(f"**{station}**")
-    for measure, value in data.items():
+if st.session_state.selected_station:
+    station_data = recent_data.get(st.session_state.selected_station, {})
+    st.markdown(f"**Recent Data for {st.session_state.selected_station}**")
+    for measure, value in station_data.items():
         st.write(f"- {measure}: {value}")
-
-# Optionally, you could add a timeline filter in future versions for filtering recent data
