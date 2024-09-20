@@ -224,7 +224,7 @@ else:
                     y=streamflow_data['discharge_ml_day'], 
                     mode='lines', 
                     name='Streamflow', 
-                    line=dict(color='rgba(255, 171, 171, 0.5)')  # 50% opacity red line
+                    line=dict(color='rgba(255, 171, 171, .8)')  # 50% opacity red line
                 ),
                 secondary_y=True  # Use secondary y-axis for streamflow
             )
