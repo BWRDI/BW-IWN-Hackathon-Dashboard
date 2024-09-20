@@ -1,8 +1,13 @@
 import streamlit as st
 import pandas as pd
 
+# Add logo at the top of the page
+st.image('assets/Logo.png', width=200)
+
+# Title with subscript
 st.markdown("<h2>H<sub>2</sub>Overview Dashboard</h2>", unsafe_allow_html=True)
 
+# Sidebar message
 st.sidebar.success("Navigate through the pages using the sidebar.")
 
 st.markdown(

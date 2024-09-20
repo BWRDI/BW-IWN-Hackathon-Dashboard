@@ -1,0 +1,221 @@
+﻿Subsite_Code,Subsite_Name,Subsite_Type,System,Zone,date_sampled,Sample_No,Measure,Result,Result_Qualifier,Result_Text,Units
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,7/12/2023,9157653,Turbidity,5,NULL,5,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,7/12/2023,9157654,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,7/12/2023,9157654,Nitrate - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,7/12/2023,9157654,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,7/12/2023,9157655,Electrical Conductivity,390,NULL,390,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,7/12/2023,9157679,Turbidity,10,NULL,10,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,7/12/2023,9157680,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,7/12/2023,9157680,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,7/12/2023,9157680,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,7/12/2023,9157681,Electrical Conductivity,250,NULL,250,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,24/11/2023,9091224,Turbidity,3,NULL,3,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,24/11/2023,9091227,Electrical Conductivity,430,NULL,430,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,24/11/2023,9091226,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,24/11/2023,9091226,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,24/11/2023,9091226,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,24/11/2023,9091265,Turbidity,13,NULL,13,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,24/11/2023,9091267,Electrical Conductivity,220,NULL,220,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,24/11/2023,9091266,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,24/11/2023,9091266,Nitrate - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,24/11/2023,9091266,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,10/11/2023,9044336,Turbidity,6,NULL,6,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,10/11/2023,9044338,Electrical Conductivity,350,NULL,350,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,10/11/2023,9044337,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,10/11/2023,9044337,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,10/11/2023,9044337,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,10/11/2023,9044353,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,10/11/2023,9044353,Nitrate - Nitrogen,0.04,NULL,0.04,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,10/11/2023,9044353,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,10/11/2023,9044352,Turbidity,11,NULL,11,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,10/11/2023,9140082,Electrical Conductivity,200,NULL,200,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,27/10/2023,8971805,Turbidity,4.9,NULL,4.9,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,27/10/2023,8971808,Electrical Conductivity,300,NULL,300,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,27/10/2023,8971806,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,27/10/2023,8971806,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,27/10/2023,8971806,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/10/2023,8971821,Turbidity,9.5,NULL,9.5,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/10/2023,8971825,Electrical Conductivity,200,NULL,200,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/10/2023,8971823,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/10/2023,8971823,Nitrate - Nitrogen,0.06,NULL,0.06,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/10/2023,8971823,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,13/10/2023,8971807,Turbidity,5.5,NULL,5.5,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,13/10/2023,8971811,Electrical Conductivity,260,NULL,260,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,13/10/2023,8971809,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,13/10/2023,8971809,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,13/10/2023,8971809,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,13/10/2023,8971826,Electrical Conductivity,200,NULL,200,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,13/10/2023,8971822,Turbidity,8.8,NULL,8.8,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,13/10/2023,8971824,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,13/10/2023,8971824,Nitrate - Nitrogen,0.22,NULL,0.22,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,13/10/2023,8971824,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,26/09/2023,8875248,Turbidity,4.3,NULL,4.3,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,26/09/2023,8875249,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,26/09/2023,8875249,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,26/09/2023,8875249,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,26/09/2023,8875250,Electrical Conductivity,260,NULL,260,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,26/09/2023,8875263,Turbidity,7.1,NULL,7.1,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,26/09/2023,8875264,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,26/09/2023,8875264,Nitrate - Nitrogen,0.48,NULL,0.48,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,26/09/2023,8875264,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,26/09/2023,8875265,Electrical Conductivity,260,NULL,260,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,14/09/2023,8825605,Turbidity,7,NULL,7,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,14/09/2023,8825606,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,14/09/2023,8825606,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,14/09/2023,8825606,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,14/09/2023,8825607,Electrical Conductivity,200,NULL,200,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,14/09/2023,8825621,Turbidity,9.3,NULL,9.3,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,14/09/2023,8825622,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,14/09/2023,8825622,Nitrate - Nitrogen,0.38,NULL,0.38,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,14/09/2023,8825622,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,14/09/2023,8825623,Electrical Conductivity,240,NULL,240,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,31/08/2023,8774956,Turbidity,6.7,NULL,6.7,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,31/08/2023,8774958,Electrical Conductivity,200,NULL,200,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,31/08/2023,8774957,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,31/08/2023,8774957,Nitrate - Nitrogen,0.03,NULL,0.03,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,31/08/2023,8774957,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,31/08/2023,8774963,Turbidity,12,NULL,12,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,31/08/2023,8774964,Electrical Conductivity,260,NULL,260,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,31/08/2023,8915347,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,31/08/2023,8915347,Nitrate - Nitrogen,0.42,NULL,0.42,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,31/08/2023,8915347,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,18/08/2023,8727051,Turbidity,6,NULL,6,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,18/08/2023,8727053,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,18/08/2023,8727053,Nitrate - Nitrogen,0.08,NULL,0.08,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,18/08/2023,8727053,Phosphate,0.02,NULL,0.02,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,18/08/2023,8727054,Electrical Conductivity,200,NULL,200,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,18/08/2023,8727080,Turbidity,8.2,NULL,8.2,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,18/08/2023,8727081,Electrical Conductivity,200,NULL,200,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,18/08/2023,8806713,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,18/08/2023,8806713,Nitrate - Nitrogen,0.65,NULL,0.65,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,18/08/2023,8806713,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/08/2023,8681377,Turbidity,7,NULL,7,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/08/2023,8681379,Electrical Conductivity,180,NULL,180,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/08/2023,8681378,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/08/2023,8681378,Nitrate - Nitrogen,0.03,NULL,0.03,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/08/2023,8681378,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/08/2023,8681390,Turbidity,9,NULL,9,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/08/2023,8681391,Electrical Conductivity,190,NULL,190,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/08/2023,8806666,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/08/2023,8806666,Nitrate - Nitrogen,0.7,NULL,0.7,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/08/2023,8806666,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,21/07/2023,8638572,Turbidity,7.6,NULL,7.6,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,21/07/2023,8638573,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,21/07/2023,8638573,Nitrate - Nitrogen,0.08,NULL,0.08,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,21/07/2023,8638573,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,21/07/2023,8638574,Electrical Conductivity,150,NULL,150,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,21/07/2023,8638587,Turbidity,9.2,NULL,9.2,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,21/07/2023,8638588,Electrical Conductivity,160,NULL,160,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,21/07/2023,8675573,Nitrite - Nitrogen,0.01,NULL,0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,21/07/2023,8675573,Nitrate - Nitrogen,0.86,NULL,0.86,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,21/07/2023,8675573,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/07/2023,8593469,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/07/2023,8593469,Nitrate - Nitrogen,0.18,NULL,0.18,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/07/2023,8593469,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/07/2023,8593468,Turbidity,8.6,NULL,8.6,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/07/2023,8593470,Electrical Conductivity,150,NULL,150,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/07/2023,8675532,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/07/2023,8675532,Nitrate - Nitrogen,0.76,NULL,0.76,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/07/2023,8675532,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/07/2023,8593483,Turbidity,14,NULL,14,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/07/2023,8593484,Electrical Conductivity,190,NULL,190,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/06/2023,8540535,Turbidity,15,NULL,15,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/06/2023,8540536,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/06/2023,8540536,Nitrate - Nitrogen,0.1,NULL,0.1,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/06/2023,8540536,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/06/2023,8540537,Electrical Conductivity,120,NULL,120,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/06/2023,8540557,Turbidity,16,NULL,16,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/06/2023,8540558,Electrical Conductivity,210,NULL,210,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/06/2023,8585728,Nitrite - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/06/2023,8585728,Nitrate - Nitrogen,0.59,NULL,0.59,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/06/2023,8585728,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,8/06/2023,8496522,Turbidity,57,NULL,57,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,8/06/2023,8496524,Electrical Conductivity,110,NULL,110,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,8/06/2023,8496523,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,8/06/2023,8496523,Nitrate - Nitrogen,0.29,NULL,0.29,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,8/06/2023,8496523,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,8/06/2023,8496539,Turbidity,62,NULL,62,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,8/06/2023,8496540,Electrical Conductivity,85,NULL,85,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,8/06/2023,8585707,Nitrite - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,8/06/2023,8585707,Nitrate - Nitrogen,0.64,NULL,0.64,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,8/06/2023,8585707,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,25/05/2023,8450972,Turbidity,2.8,NULL,2.8,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,25/05/2023,8450974,Electrical Conductivity,500,NULL,500,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,25/05/2023,8450973,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,25/05/2023,8450973,Nitrate - Nitrogen,0.37,NULL,0.37,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,25/05/2023,8450973,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,25/05/2023,8450991,Turbidity,7.4,NULL,7.4,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,25/05/2023,8450992,Electrical Conductivity,240,NULL,240,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,25/05/2023,8474155,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,25/05/2023,8474155,Nitrate - Nitrogen,0.18,NULL,0.18,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,25/05/2023,8474155,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,11/05/2023,8401491,Turbidity,3.6,NULL,3.6,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,11/05/2023,8401493,Electrical Conductivity,450,NULL,450,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,11/05/2023,8401492,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,11/05/2023,8401492,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,11/05/2023,8401492,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,11/05/2023,8401501,Turbidity,4.8,NULL,4.8,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,11/05/2023,8401502,Electrical Conductivity,420,NULL,420,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,11/05/2023,8474142,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,11/05/2023,8474142,Nitrate - Nitrogen,0.27,NULL,0.27,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,11/05/2023,8474142,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/04/2023,8353300,Turbidity,6.2,NULL,6.2,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/04/2023,8353301,Electrical Conductivity,250,NULL,250,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/04/2023,8410244,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/04/2023,8410244,Nitrate - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,27/04/2023,8410244,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,12/04/2023,8410284,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,12/04/2023,8410284,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,12/04/2023,8410284,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,12/04/2023,8309248,Turbidity,8,NULL,8,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,12/04/2023,8309249,Electrical Conductivity,220,NULL,220,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,30/03/2023,8268487,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,30/03/2023,8268487,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,30/03/2023,8268487,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,30/03/2023,8254142,Turbidity,13,NULL,13,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,30/03/2023,8254143,Electrical Conductivity,270,NULL,270,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/03/2023,8209913,Electrical Conductivity,300,NULL,300,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/03/2023,8209912,Turbidity,13,NULL,13,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/03/2023,8268463,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/03/2023,8268463,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/03/2023,8268463,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,2/03/2023,8162921,Turbidity,6.6,NULL,6.6,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,2/03/2023,8162922,Electrical Conductivity,300,NULL,300,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,2/03/2023,8268437,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,2/03/2023,8268437,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,2/03/2023,8268437,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/02/2023,8150345,Turbidity,9.2,NULL,9.2,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/02/2023,8150347,Electrical Conductivity,230,NULL,230,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/02/2023,8156743,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/02/2023,8156743,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,17/02/2023,8156743,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,3/02/2023,8132495,Turbidity,13,NULL,13,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,3/02/2023,8132496,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,3/02/2023,8132496,Nitrate - Nitrogen,0.01,NULL,0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,3/02/2023,8132496,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,3/02/2023,8132497,Electrical Conductivity,420,NULL,420,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,3/02/2023,8132507,Turbidity,9.1,NULL,9.1,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,3/02/2023,8132508,Electrical Conductivity,210,NULL,210,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,3/02/2023,8156690,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,3/02/2023,8156690,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,3/02/2023,8156690,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/01/2023,8071792,Turbidity,3.7,NULL,3.7,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/01/2023,8071793,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/01/2023,8071793,Nitrate - Nitrogen,0.02,NULL,0.02,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/01/2023,8071793,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,20/01/2023,8071794,Electrical Conductivity,310,NULL,310,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/01/2023,8071807,Turbidity,13,NULL,13,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/01/2023,8071808,Electrical Conductivity,210,NULL,210,uS/cm
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/01/2023,8117849,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/01/2023,8117849,Nitrate - Nitrogen,0.01,NULL,0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,20/01/2023,8117849,Phosphate,0.005,<,<0.01,mg P / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/01/2023,8117332,Turbidity,7.2,NULL,7.2,NTU
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/01/2023,8117334,Electrical Conductivity,250,NULL,250,uS/cm
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/01/2023,8117333,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/01/2023,8117333,Nitrate - Nitrogen,0.005,<,<0.01,mg N / L
+SITE17,Kangaroo Creek at O'Donnells Rd,Catchment,Kyneton,Malmsbury,4/01/2023,8117333,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/01/2023,8117353,Nitrite - Nitrogen,0.005,<,<0.01,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/01/2023,8117353,Nitrate - Nitrogen,0.04,NULL,0.04,mg N / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/01/2023,8117353,Phosphate,0.005,<,<0.01,mg P / L
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/01/2023,8117352,Turbidity,14,NULL,14,NTU
+SITE2,Little Coliban River @ Inlet to Upper Coliban Res,Catchment,Kyneton,Kyneton,4/01/2023,8117354,Electrical Conductivity,160,NULL,160,uS/cm
