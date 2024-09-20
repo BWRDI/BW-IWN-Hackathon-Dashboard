@@ -7,10 +7,10 @@ from pathlib import Path
 
 # Set page title
 st.set_page_config(page_title="Report Export", page_icon="📄")
-st.title("📄 Report Export")
+st.title("📄 Export Reports")
 
 st.markdown("""
-This page allows you to export the report of recent data, including all available EcoDetection data, lab data, and rainfall exceedances.
+This page allows you to export a report of recent data, including all available EcoDetection data, lab data, and rainfall exceedances.
 You can customize the report to include any combination of data types.
 """)
 

@@ -27,7 +27,7 @@ st.sidebar.success(f"Viewing data for: {selected_site}")
 
 # Sidebar: Add subheading and checkboxes for secondary axis options
 st.sidebar.markdown("### Secondary Axis Settings")
-use_secondary_axis_conductivity = st.sidebar.checkbox("Move Conductivity to Secondary Axis", value=True)
+use_secondary_axis_conductivity = True
 use_secondary_axis_chloride = st.sidebar.checkbox("Move Chloride Concentration to Secondary Axis", value=True)
 
 # Load EcoDetection data using st.cache_data
@@ -103,33 +103,55 @@ st.plotly_chart(fig_nutrients)
 
 # Group 3: Physical Properties
 st.subheader("Physical Properties")
-fig_physical = make_subplots(specs=[[{"secondary_y": True}]])
+fig_physical1 = make_subplots(specs=[[{"secondary_y": True}]])
+fig_physical2 = make_subplots(specs=[[{"secondary_y": True}]])
 
 # Plot Conductivity on primary or secondary axis
-physical_properties = ["Conductivity", "Nephelo Turbidity", "Oxygen", "pH"]
-for property in physical_properties:
+physical_properties1 = ["Conductivity", "Nephelo Turbidity"]
+physical_properties2 = ["Oxygen", "pH"]
+
+for property in physical_properties1:
     filtered_data = site_data_eco_filtered[site_data_eco_filtered["measurement"] == property]
     
-    fig_physical.add_trace(
+    fig_physical1.add_trace(
         go.Scatter(x=filtered_data['timestamp'], y=filtered_data['result_mg_L'], name=property),
         secondary_y=use_secondary_axis_conductivity if property == "Conductivity" else False
     )
 
+for property in physical_properties2:
+    filtered_data = site_data_eco_filtered[site_data_eco_filtered["measurement"] == property]
+    
+    fig_physical2.add_trace(
+        go.Scatter(x=filtered_data['timestamp'], y=filtered_data['result_mg_L'], name=property),
+        secondary_y=use_secondary_axis_conductivity if property == "pH" else False
+    )
+
 # Update layout for physical properties chart
-fig_physical.update_layout(
-    title="Physical Properties",
+fig_physical1.update_layout(
+    title="Physical Properties 1",
     xaxis_title="Date",
-    yaxis_title="Value",
-    yaxis2_title="Conductivity (μS/cm)" if use_secondary_axis_conductivity else None,
+    yaxis_title="Nephelo Turbidity (NTU)",
+    yaxis2_title="Conductivity (μS/cm)",
+    legend_title="Measurements",
+    height=600,
+)
+
+# Update layout for physical properties chart
+fig_physical2.update_layout(
+    title="Physical Properties 2",
+    xaxis_title="Date",
+    yaxis_title="Oxygen (mg/L)",
+    yaxis2_title="pH",
     legend_title="Measurements",
     height=600,
 )
 
 # Adjust line colors for clarity on secondary axis
-fig_physical.update_traces(line=dict(color='green'), selector=dict(secondary_y=False))
-fig_physical.update_traces(line=dict(color='red'), selector=dict(secondary_y=True))
+fig_physical1.update_traces(line=dict(color='green'), selector=dict(secondary_y=False))
+fig_physical1.update_traces(line=dict(color='red'), selector=dict(secondary_y=True))
 
-st.plotly_chart(fig_physical)
+st.plotly_chart(fig_physical1)
+st.plotly_chart(fig_physical2)
 
 # Group 4: Environmental Data
 st.subheader("Environmental Data")
