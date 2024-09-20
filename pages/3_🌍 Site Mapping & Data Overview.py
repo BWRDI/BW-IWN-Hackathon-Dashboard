@@ -13,7 +13,7 @@ st.sidebar.header("Station Details Overview")
 st.sidebar.write("This page shows the monitoring stations on an interactive map. "
                  "You can select a station from the sidebar to view more details and set alarm sensitivities.")
 
-# Load the Excel file directly from the server
+# Load station data (replace with your actual data)
 @st.cache_data
 def load_station_data(file_path):
     return pd.read_excel(file_path)
@@ -27,9 +27,17 @@ stations_df = load_station_data(file_path)
 # Correct the typo in the column name
 stations_df.rename(columns={'lattitude': 'latitude'}, inplace=True)
 
-# Sidebar: Station Selection
-station_options = stations_df['station_name'].tolist()
-selected_station = st.sidebar.selectbox("Select a station", station_options)
+# Sidebar: Sensor Type Selection
+sensor_types = ["Overview", "Water Quality Sensor", "Rainfall Sensor", "Temperature Sensor", "Stream Flow Sensor", "Water Quality Sampling Point"]
+selected_sensor_type = st.sidebar.selectbox("Select Sensor Type", sensor_types)
+
+# Sidebar: Site Selection
+site_options = ["Kangaroo Creek", "Little Coliban River", "Five Mile Creek - Woodend RWP Site 1", "Five Mile Creek - Woodend RWP Site 2"]
+selected_site = st.sidebar.selectbox("Select a site", site_options)
+
+# Filter stations by selected sensor type
+if selected_sensor_type != "Overview":
+    stations_df = stations_df[stations_df['type'] == selected_sensor_type]
 
 # Function to display station details and alarms with sensitivity sliders
 def display_station_details(station_name):
@@ -56,34 +64,40 @@ def display_station_details(station_name):
         sensitivity = st.slider("Set Sensitivity for Post-Treatment at Five Mile Creek 2", 0, 100, 50)
         st.write(f"Sensitivity: {sensitivity}")
 
-    else:
-        st.success("No alarms for this site.")
-
-# Create a map using Folium with clickable markers
+# Create a map with Folium and add markers for filtered stations
 m = folium.Map(location=[-37.814, 144.96332], zoom_start=9)
 
 # Marker color based on station and alarm status
-def get_marker_color(station_name):
-    if station_name in ["Kangaroo Creek", "Little Coliban River"]:
-        return "orange"  # Eco Detection vs Lab based alarm
-    elif station_name == "Five Mile Creek - Woodend RWP Site 1":
-        return "blue"  # Pre-Treatment alarm
-    elif station_name == "Five Mile Creek - Woodend RWP Site 2":
-        return "green"  # Post-Treatment alarm
-    else:
-        return "gray"
+marker_colors = {station: "green" for station in site_options}
 
-# Add markers to the map with colors based on alarms
+# Checkbox to simulate triggered alarms
+trigger_alarms = st.sidebar.checkbox("Simulate Alarms")
+
+# Simulate alarms and change marker colors
+if trigger_alarms:
+    marker_colors["Kangaroo Creek"] = "orange"
+    marker_colors["Little Coliban River"] = "red"
+    
+    # Display warning and error messages for these two sites
+    st.warning("⚠️ Warning: Kangaroo Creek has a triggered alarm.")
+    st.error("❌ Error: Little Coliban River has a severe issue.")
+
+# Add markers to the map with dynamic colors
 for _, row in stations_df.iterrows():
-    marker_color = get_marker_color(row['station_name'])
-    folium.Marker([row['latitude'], row['longitude']], popup=row['station_name'], icon=folium.Icon(color=marker_color)).add_to(m)
+    station_name = row['station_name']
+    marker_color = marker_colors.get(station_name, "green")  # Default to green if not triggered
+    folium.Marker(
+        [row['latitude'], row['longitude']], 
+        popup=row['station_name'], 
+        icon=folium.Icon(color=marker_color)
+    ).add_to(m)
 
 # Display the map using Streamlit
 folium_static(m)
 
 # Show station details and alarms based on sidebar selection
-if selected_station:
-    display_station_details(selected_station)
+if selected_site:
+    display_station_details(selected_site)
 
 # Add Recent Data Insights section for the stations
 st.subheader("Recent Data Insights")
@@ -94,8 +108,8 @@ recent_data = {
     "Five Mile Creek - Woodend RWP Site 2": {"Turbidity": "6 NTU", "pH": "7.1", "Nitrate": "0.06 mg/L"}
 }
 
-if selected_station:
-    station_data = recent_data.get(selected_station, {})
-    st.markdown(f"**Recent Data for {selected_station}**")
+if selected_site:
+    station_data = recent_data.get(selected_site, {})
+    st.markdown(f"**Recent Data for {selected_site}**")
     for measure, value in station_data.items():
         st.write(f"- {measure}: {value}")
