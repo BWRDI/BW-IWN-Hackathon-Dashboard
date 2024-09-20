@@ -65,7 +65,7 @@ def display_station_details(station_name):
         st.write(f"Sensitivity: {sensitivity}")
 
 # Create a map with Folium and add markers for filtered stations
-m = folium.Map(location=[-37.814, 144.96332], zoom_start=9)
+m = folium.Map(location=[-37.268, 144.442], zoom_start=9)
 
 # Marker color based on station and alarm status
 marker_colors = {station: "green" for station in site_options}
