@@ -191,16 +191,62 @@ else:
             'Value': pd.concat([eco_detection_param_data['result'], lab_data_param_filtered['Result']]),
         }).dropna()
 
-        # Create a line chart using Plotly with custom colors
-        fig = px.line(
-            combined_df, 
-            x='Date', y='Value', 
-            color='Source', 
-            color_discrete_map={"EcoDetection": "#1f77b4", "Lab": "#ff7f0e"},  # Set custom colors
-            labels={'Value': f'{param} (mg/L)' if param != "Turbidity" else f'{param} (NTU)'},
-            title=f'{param} Trend Comparison for {selected_site}'
+        # Create a line chart using Plotly with custom colors and add Streamflow data to the plot
+        fig = make_subplots(specs=[[{"secondary_y": True}]])  # Secondary y-axis for Streamflow
+
+        # Add EcoDetection data
+        fig.add_trace(
+            go.Scatter(
+                x=eco_detection_param_data['Date'], 
+                y=eco_detection_param_data['result'], 
+                mode='lines', 
+                name='EcoDetection',
+            ),
+            secondary_y=False
         )
 
+        # Add Lab data
+        fig.add_trace(
+            go.Scatter(
+                x=lab_data_param_filtered['Date'], 
+                y=lab_data_param_filtered['Result'], 
+                mode='lines', 
+                name='Lab',
+            ),
+            secondary_y=False
+        )
+
+        # Add Streamflow data with 50% opacity if enabled and for Nitrate and Conductivity
+        if param in ["Nitrate", "Conductivity"]:
+            fig.add_trace(
+                go.Scatter(
+                    x=streamflow_data['datetime'], 
+                    y=streamflow_data['discharge_ml_day'], 
+                    mode='lines', 
+                    name='Streamflow', 
+                    line=dict(color='rgba(255, 171, 171, 0.5)')  # 50% opacity red line
+                ),
+                secondary_y=True  # Use secondary y-axis for streamflow
+            )
+
+            # Update the layout to add a secondary y-axis for streamflow
+            fig.update_layout(
+                yaxis2=dict(
+                    title="Streamflow (ML/day)",
+                    overlaying="y",
+                    side="right"
+                )
+            )
+
+        # Update layout and display the plot
+        fig.update_layout(
+            title=f'{param} Trend Comparison for {selected_site}',
+            xaxis_title="Date",
+            yaxis_title=f'{param} (mg/L)' if param != "Turbidity" else f'{param} (NTU)',
+            legend_title="Source",
+            height=600
+        )
+        
         st.plotly_chart(fig)
 
 # Explanation of the comparison
