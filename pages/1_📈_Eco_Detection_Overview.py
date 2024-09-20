@@ -85,10 +85,6 @@ fig_inorganic.update_layout(
     height=600,
 )
 
-# Adjust line colors for clarity on secondary axis
-fig_inorganic.update_traces(line=dict(color='blue'), selector=dict(secondary_y=False))
-fig_inorganic.update_traces(line=dict(color='orange'), selector=dict(secondary_y=True))
-
 st.plotly_chart(fig_inorganic)
 
 # Group 2: Nutrients
