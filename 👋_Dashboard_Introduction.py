@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Catchment Health Dashboard for Coliban Water")
+st.markdown("<h2>H<sub>2</sub>Overview Dashboard</h2>", unsafe_allow_html=True)
 
 st.sidebar.success("Navigate through the pages using the sidebar.")
 
@@ -20,7 +20,7 @@ st.markdown(
     **👈 Select a page from the sidebar** to start exploring the data.
 
     ### Need assistance?
-    - Meet **James**, our AI assistant! James has access to all the water quality, rainfall, and streamflow data available on this dashboard.
+    - Meet **John**, our AI assistant! James has access to all the water quality, rainfall, and streamflow data available on this dashboard.
     - You can ask James questions in a natural language format, and he'll provide insights, data summaries, and help you navigate through the dashboard.
     - To interact with James, click on the chat icon in the bottom right corner of any page.
 
