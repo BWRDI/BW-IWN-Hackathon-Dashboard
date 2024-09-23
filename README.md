@@ -4,7 +4,7 @@ A simple Streamlit app showing a range of Eco Detection and Lab Based data from 
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bw-iwn-hackathon-dashboard.streamlit.app/)
 
-[Open in My Website](https://lsharkey.tech/hackathon/)
+[Open Website Version (With Chatbot)](https://lsharkey.tech/hackathon/)
 
 ### How to run it on your own machine
 
