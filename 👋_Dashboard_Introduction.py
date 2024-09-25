@@ -1,5 +1,9 @@
 import streamlit as st
 import pandas as pd
+from pathlib import Path
+
+# Define the path to the presentation file
+presentation_path = Path(__file__).parent / 'assets' / "Barwon Of A Kind.pptx"
 
 # Add logo at the top of the page
 st.image('assets/Logo.png', width=200)
@@ -7,12 +11,25 @@ st.image('assets/Logo.png', width=200)
 # Title with subscript
 st.markdown("<h2>H<sub>2</sub>Overview Dashboard</h2>", unsafe_allow_html=True)
 
-# Sidebar message
+# Sidebar message with a download button for the presentation
 st.sidebar.success("Navigate through the pages using the sidebar.")
 
+# Ensure the file exists before offering it for download
+if presentation_path.exists():
+    with open(presentation_path, "rb") as file:
+        st.sidebar.download_button(
+            label="📥 Download the Barwon of a Kind Presentation",
+            data=file,
+            file_name="Barwon_Of_A_Kind.pptx",
+            mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        )
+else:
+    st.sidebar.error("Presentation file not found.")
+
+# Main content: Introduction and dashboard description
 st.markdown(
     """
-    Welcome to **Barwon of a Kind**'s IWN Hackathon Dashboard, designed to provide comprehensive insights into the water quality data collected from the Little Coliban River catchment area.  
+    Welcome to **Barwon of a Kind**'s IWN Hackathon Dashboard, designed to provide comprehensive insights into the water quality data collected from the Little Coliban River catchment area.
     This dashboard is built for **Coliban Water management** and focuses on comparing real-time sensor data with lab-based water quality measurements, rainfall, and streamflow data.
     
     ### Dashboard Overview:
@@ -22,13 +39,13 @@ st.markdown(
     - **Alerts**: Get notified when thresholds (e.g., 20mm of rainfall or high streamflow) are exceeded, triggering the need for further testing.
     - **Conclusions & Recommendations**: Summarize key findings and provide recommendations for ongoing sensor deployment and data management.
     
-    **👈 Select a page from the sidebar** to start exploring the data.
-
+    **👈 Select a page from the sidebar** to start exploring the data, or **download our presentation** to get a full overview of the project.
+    
     ### Need assistance?
-    - Meet **John**, our AI assistant! James has access to all the water quality, rainfall, and streamflow data available on this dashboard.
-    - You can ask James questions in a natural language format, and he'll provide insights, data summaries, and help you navigate through the dashboard.
-    - To interact with James, click on the chat icon in the bottom right corner of any page.
-
+    - Meet **John**, our AI assistant! John has access to all the water quality, rainfall, and streamflow data available on this dashboard.
+    - You can ask John questions in a natural language format, and he'll provide insights, data summaries, and help you navigate through the dashboard.
+    - To interact with John, click on the chat icon in the bottom right corner of any page.
+    
     ### Want to dive deeper?
     - Explore the interactive data visualizations and insights on each site-specific page.
     """
