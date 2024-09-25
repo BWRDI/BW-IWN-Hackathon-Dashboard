@@ -19,4 +19,3 @@ A simple Streamlit app showing a range of Eco Detection and Lab Based data from 
    ```
    $ streamlit run 👋_Dashboard_Introduction.py
    ```
-=======
