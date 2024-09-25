@@ -42,9 +42,9 @@ st.markdown(
     **👈 Select a page from the sidebar** to start exploring the data, or **download our presentation** to get a full overview of the project.
     
     ### Need assistance?
-    - Meet **James**, our AI assistant! James has access to all the water quality, rainfall, and streamflow data available on this dashboard.
-    - You can ask James questions in a natural language format, and he'll provide insights, data summaries, and help you navigate through the dashboard.
-    - To interact with James, click on the chat icon in the bottom right corner of any page.
+    - Meet **John**, our AI assistant! John has access to all the water quality, rainfall, and streamflow data available on this dashboard.
+    - You can ask John questions in a natural language format, and he'll provide insights, data summaries, and help you navigate through the dashboard.
+    - To interact with John, click on the chat icon in the bottom right corner of any page.
     
     ### Want to dive deeper?
     - Explore the interactive data visualizations and insights on each site-specific page.
